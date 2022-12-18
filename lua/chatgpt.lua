@@ -2,6 +2,7 @@
 local module = require("chatgpt.module")
 local config = require("chatgpt.config")
 local api = require("chatgpt.api")
+local buffer = require("chatgpt.buffer")
 
 local M = {}
 
@@ -26,5 +27,6 @@ M.edit_with_instructions = function()
 end
 
 M.api = api
+M.buffer = buffer
 
 return M
