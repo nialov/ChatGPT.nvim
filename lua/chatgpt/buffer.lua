@@ -60,6 +60,7 @@ local callback = function(answer)
   -- Append the
   local answer_lines = vim.fn.split(answer, "\n")
   set_persistent_answer_buf_lines(answer_lines)
+  vim.notify(string.format("Got response to ChatGPT call: %.45s ...", answer))
 end
 
 M.api_call = function(prompt)
@@ -82,8 +83,8 @@ M.api_call = function(prompt)
   -- Insert the query formatted with the headers
   set_persistent_answer_buf_lines(prompt_lines)
 
-  assert(prompt ~= nil)
-  vim.notify(string.format("Conducting ChatGPT call: %s ...", string.sub(prompt, 1, 10)))
+  assert(prompt ~= nil, "prompt must not be nil")
+  vim.notify(string.format("Conducting ChatGPT call: %.45s ...", prompt))
 
   -- Conduct the actual API call the ChatGPT
   api.completions(prompt, callback)
