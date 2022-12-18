@@ -74,9 +74,10 @@ M.api_call = function(prompt)
 
   -- Append a header for the answer (answer gets added later by callback)
   local answer_header = "## Answer"
-  table.insert(prompt_lines, #prompt_lines, "")
-  table.insert(prompt_lines, #prompt_lines, answer_header)
-  table.insert(prompt_lines, #prompt_lines, "")
+  local insert_end_idx = #prompt_lines + 1
+  table.insert(prompt_lines, insert_end_idx, "")
+  table.insert(prompt_lines, insert_end_idx, answer_header)
+  table.insert(prompt_lines, insert_end_idx, "")
 
   -- Insert the query formatted with the headers
   set_persistent_answer_buf_lines(prompt_lines)
