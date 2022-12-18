@@ -1,4 +1,4 @@
-local api = require("chatgpt").api
+local api = require("chatgpt.api")
 
 local M = {}
 
